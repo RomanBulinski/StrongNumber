@@ -14,23 +14,26 @@ public class StrongNumber {
                 .mapToInt(n ->silnia( n ))
                 .mapToObj(m->String.valueOf(m))
                 .collect(toList());
-        String effect = "";
+        int effect = 0;
         for(int i =0; i <list.size(); i++){
-            effect+=list.get(i);
+            effect+= Integer.parseInt( (String)list.get(i) );
         }
-        if( num == Integer.valueOf(effect) ){
+        if( num == effect ){
             return "STRONG!!!!";
+        }else{
+            return "Not Strong !!";
         }
-        return "Not Strong !!";
+
     }
 
     static int silnia(String i) {
-        int res = 0;
+        int res = 1;
         for (int j = 1; j <= Integer.valueOf(i); j++) {
             res = res * j;
         }
         return res;
     }
+    
 
 
 }
